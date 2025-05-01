@@ -1,0 +1,68 @@
+function addTask() {
+  const taskInput = document.getElementById('taskInput');
+  const taskList = document.getElementById('taskList');
+  const taskText = taskInput.value.trim();
+
+  if (taskText !== '') {
+    const li = document.createElement('li');
+    li.textContent = taskText;
+    taskList.appendChild(li);
+    taskInput.value = '';
+  }
+}
+
+function talkToExa() {
+  const input = document.getElementById('exaInput');
+  const chatBox = document.getElementById('exaChatBox');
+  const userText = input.value.trim();
+
+  if (userText !== '') {
+    const userMsg = document.createElement('p');
+    userMsg.innerHTML = "<strong>You:</strong> " + userText;
+
+    const exaReply = document.createElement('p');
+    exaReply.innerHTML = "<strong>Exa:</strong> " + getExaReply(userText);
+
+    chatBox.appendChild(userMsg);
+    chatBox.appendChild(exaReply);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    input.value = '';
+  }
+}
+
+function getExaReply(input) {
+  const lower = input.toLowerCase();
+
+  if (lower.startsWith("my goal is")) {
+    const goal = input.substring(11).trim();
+    if (goal.length > 0) {
+      localStorage.setItem("userGoal", goal);
+      return "Got it! I’ve saved your goal: \"" + goal + "\"";
+    } else {
+      return "Hmm, I didn’t catch the goal. Try again?";
+    }
+  }
+
+  if (lower.includes("what") && lower.includes("goal")) {
+    const goal = localStorage.getItem("userGoal");
+    return goal ? "Your current goal is: \"" + goal + "\"" : "You haven’t set a goal yet.";
+  }
+
+  const responses = [
+    { keywords: ["hi", "hello", "hey"], reply: "Hey there! Ready to be productive?" },
+    { keywords: ["task", "add"], reply: "Type your task and hit 'Add'. I’ll track it." },
+    { keywords: ["mode", "study", "work", "exercise"], reply: "Pick a mode to focus better." },
+    { keywords: ["motivate"], reply: "You got this. Just start — momentum will come!" },
+    { keywords: ["quote", "inspire"], reply: "“Success is the sum of small efforts, repeated daily.” – R. Collier" },
+    { keywords: ["time", "clock"], reply: `Right now it's ${new Date().toLocaleTimeString()}` }
+  ];
+
+  for (let pair of responses) {
+    for (let word of pair.keywords) {
+      if (lower.includes(word)) return pair.reply;
+    }
+  }
+
+  return "I'm here to keep you productive. Ask about goals, tasks, or time tips!";
+}

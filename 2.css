@@ -1,0 +1,98 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #141e30, #243b55);
+  color: #f0f0f0;
+  padding: 1.5rem;
+}
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  padding: 2rem 1.5rem;
+}
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+}
+.subtitle {
+  text-align: center;
+  color: #cccccc;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+select, input[type="text"], button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+input[type="text"], select {
+  background: #2f3542;
+  color: #f0f0f0;
+}
+button {
+  background: linear-gradient(to right, #6c63ff, #4b4bea);
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: linear-gradient(to right, #5a54f3, #3f3fd7);
+}
+.section {
+  margin-top: 2rem;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+li {
+  background: #3a3a3a;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  color: #eee;
+}
+.exa-banner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background: rgba(255,255,255,0.05);
+  padding: 10px 15px;
+  border-radius: 12px;
+}
+.exa-logo {
+  height: 48px;
+  width: 48px;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 6px #00f0ff);
+  border-radius: 50%;
+}
+.exa-title {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  font-weight: bold;
+}
+.exa-chat input[type="text"] {
+  margin-top: 1rem;
+}
+.exa-box {
+  background: #2c2c2c;
+  color: #eee;
+  padding: 0.75rem;
+  border-radius: 10px;
+  min-height: 80px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+}

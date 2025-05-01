@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YourDailyBuddy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#121212" />
+</head>
+<body>
+  <div class="container">
+    <div class="exa-banner">
+      <img src="exa.png" alt="Exa AI Logo" class="exa-logo" />
+      <span class="exa-title">Your Assistant: Exa</span>
+    </div>
+    <h1>YourDailyBuddy</h1>
+    <p class="subtitle">Plan better. Stay focused.</p>
+
+    <div class="section">
+      <label for="mode">Choose Your Mode:</label>
+      <select id="mode">
+        <option>Study</option>
+        <option>Work</option>
+        <option>Exercise</option>
+        <option>Custom</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label for="taskInput">Add a Task:</label>
+      <input type="text" id="taskInput" placeholder="What do you need to do?" />
+      <button onclick="addTask()">Add Task</button>
+      <ul id="taskList"></ul>
+    </div>
+
+    <div class="section exa-chat">
+      <label for="exaInput">Talk to Exa:</label>
+      <div id="exaChatBox" class="exa-box"></div>
+      <input type="text" id="exaInput" placeholder="Ask something..." />
+      <button onclick="talkToExa()">Send</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
